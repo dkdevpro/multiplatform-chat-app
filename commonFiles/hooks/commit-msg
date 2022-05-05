@@ -1,0 +1,20 @@
+#!/bin/sh
+local_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+valid_branch_regex="^(pr_*|release|hotfix|bugfix|features)"
+message="Aborting git-push. You branch name must adhere to this contract:$valid_branch_regex"
+
+if [[ ! $local_branch =~ $valid_branch_regex ]]
+then
+    echo "$message"
+    exit 1
+fi
+
+commit_regex='(Bugfix :|Release :)'
+error_msg="Aborting git-push. Your commit message must adhere to this contract:$commit_regex"
+if ! grep -iqE "$commit_regex" "$1"; then
+    echo "$error_msg" >&2
+    exit 1
+fi
+
+exit 0

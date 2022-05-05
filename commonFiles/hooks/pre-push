@@ -1,0 +1,17 @@
+#!/bin/sh
+echo "Running detekt ..."
+./gradlew detekt
+result=$?
+if [ "$result" != 0 ] ; then
+   echo "Aborting git-push. Your detekt static analysis failed."
+   exit 1
+fi
+exit 0
+echo "Running lint ..."
+./gradlew lintDebug
+result=$?
+if [ "$result" != 0 ] ; then
+   echo "Aborting git-push. Your lint analysis failed"
+   exit 1
+fi
+exit 0
