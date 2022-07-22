@@ -1,17 +1,15 @@
-package com.dev.dinokodes.chatsdk
+package dev.dinokodes.chatsdk
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
-import dev.dinokodes.chatsdk.Configuration
-import dev.dinokodes.chatsdk.SDK
 import java.io.File
 
 fun SDK.Companion.create(
     context: Context,
     configuration: Configuration,
     isDebug: Boolean
-) = dev.dinokodes.chatsdk.MultiplatformChatSDK.initializeWithConfig(
+) = MultiplatformChatSDK.initializeWithConfig(
     configuration,
 )
 
