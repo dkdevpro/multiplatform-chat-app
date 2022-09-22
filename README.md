@@ -1,5 +1,7 @@
 # MultiplatformChat
-
+<p>
+<img src="https://img.shields.io/badge/STATUS-IN%20DEVELOPMENT-brightgreen" alt=""/>
+</p>
 **Multiplatform Chat** project using Jetpack Compose and SwiftUI.  Currently running on
 * Android (Jetpack Compose)
 * iOS (SwiftUI)
